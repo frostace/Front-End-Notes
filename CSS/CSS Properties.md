@@ -1,3 +1,5 @@
+# CSS Properties
+
 position | comment 
 :|:---:
 static (default) |Not affected by tblr (top, bottom, left, right) properties / values
