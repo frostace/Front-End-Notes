@@ -21,7 +21,7 @@
 
 2. position method would lead to page re-paint on CPU, which takes longer time, while translate method is executed on GPU
 
-![image](https://github.com/frostace/Front-End-Notes/tree/master/CSS/PositionVSTranslate.png.png)
+![image](https://github.com/frostace/Front-End-Notes/tree/master/CSS/PositionVSTranslate.png)
 
 ### Reference
 
