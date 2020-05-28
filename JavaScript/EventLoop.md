@@ -2,8 +2,10 @@
 
 ### Microtask v.s. Macrotask
 
+
+
 Microtask | Macrotask (Task Queue) 
-:|:---:
+:|:---:|:
 setTimeout | process.nextTick
 setInterval | Promises
 setImmediate | Object.observe
@@ -16,17 +18,13 @@ UI rendering |
 ### What do Promises do when they are settled?
 ![image](https://github.com/frostace/Front-End-Notes/blob/master/JavaScript/PromisePushCallbacks.png)
 
-```diff
-+ when is a microtask executed?
-+ * after macrotask callbacks only when task stack empty
-+ * end of each task
-```
+### When is a microtask executed?
+* after macrotask callbacks only when task stack empty
+* end of each task
 Note: Newly added microtasks during execution of a microtask will be appended to the microtask queue.
 
-```diff
-+ ### why microtask?
-+ * microtasks are invented for scheduling tasks that should be executed immediately after the currently executed script ends.
-```
+### Why microtask?
+* microtasks are invented for scheduling tasks that should be executed immediately after the currently executed script ends.
 
 ### Reference
 
