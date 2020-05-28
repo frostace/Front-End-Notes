@@ -4,14 +4,14 @@
 
 
 
-Microtask | Macrotask (Task Queue) 
-:|:---:|:
-setTimeout | process.nextTick
-setInterval | Promises
-setImmediate | Object.observe
-requestAnimationFrame | MutationObserver
-I/O | 
-UI rendering | 
+| Microtask | Macrotask (Task Queue) |
+|----|----|
+|setTimeout | process.nextTick|
+|setInterval | Promises|
+|setImmediate | Object.observe|
+|requestAnimationFrame | MutationObserver|
+|I/O | |
+|UI rendering | |
 
 ![image](https://github.com/frostace/Front-End-Notes/blob/master/JavaScript/EventLoop.png)
 
