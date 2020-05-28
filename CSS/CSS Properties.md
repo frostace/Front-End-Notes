@@ -1,7 +1,7 @@
 # CSS Properties
 
 position | comment 
-:|:---:
+:|:---:|:
 static (default) |Not affected by tblr (top, bottom, left, right) properties / values
 relative |tblr values cause element to be moved from its normal position
 absolute |positioned relative to its parent element that is positioned "relative"
@@ -17,6 +17,7 @@ sticky |positioned based on scroll position
 [CodePen Demo](https://codepen.io/frostace/pen/XWmwLeQ)
 
 2. position method would lead to page re-paint on CPU, which takes longer time, while translate method is executed on GPU
+
 ![image](https://github.com/frostace/Front-End-Notes/tree/master/CSS/position%20tblr%20vs%20translate.png)
 
 ### Reference
