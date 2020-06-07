@@ -21,7 +21,7 @@
 
 2. position method would lead to page re-paint on CPU, which takes longer time, while translate method is executed on GPU
 
-![image](./CSS/PositionVSTranslate.png)
+<img src="./PositionVSTranslate.png">
 
 ### Reference
 
