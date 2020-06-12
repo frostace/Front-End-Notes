@@ -5,6 +5,8 @@
 
 ## JavaScript
 * [Event Loop](./JavaScript/EventLoop.md)
+* [Closure](./JavaScript/Closure.md)
+* [Ajax](./JavaScript/Ajax.md)
 
 ## React
 
