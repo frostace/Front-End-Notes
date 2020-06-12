@@ -188,7 +188,7 @@ We use "set" attribute.
 
 Since "set" attribute would be called every time the data is updated, we just have to add some methods to update the view accordingly inside the setter function.
 
-<img src="./Vue/two-way-data-binding-MVVM.png">
+<img src="./two-way-data-binding-MVVM.png">
 
 ### Step 1: Observer
 
