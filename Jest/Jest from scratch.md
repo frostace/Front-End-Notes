@@ -1,10 +1,12 @@
-# 0. Install
+# Introduction to Jest
+
+## 0. Install
 
 ```shell
 npm install jest@24.8.0 -D
 ```
 
-# 1. Jest Condiguration
+## 1. Jest Condiguration
 
 To create a "jest.config.js" file in the workspace: 
 
@@ -19,7 +21,7 @@ npx jest --coverage
 
 And this command will also generate a folder under "coverage" folder called "Icov-report", we can see the visualized testing report in "index.html"
 
-# 2. Test example
+## 2. Test example
 
 Write a "helloworld.js" code
 ```JavaScript
@@ -55,7 +57,7 @@ Go to package.json to modify the "scripts" property
 }
 ```
 
-# 3. Jest Matchers
+## 3. Jest Matchers
 
 ### toBe()
 
@@ -238,7 +240,7 @@ test("toThrow Matcher", () => {
 ```
 
 
-# 4. Jest Automatic Testing
+## 4. Jest Automatic Testing
 
 Go to package.json to modify the "scripts" property to be:
 
@@ -266,7 +268,7 @@ npm run test
 
 The testing would be run automatically everytime we modify the script.
 
-# 5. ES6 support setup
+## 5. ES6 support setup
 
 ### Install and Configure Babel
 
@@ -324,7 +326,7 @@ test("test for helloworld, input=300", () => {
 
 
 
-# 6. Asynchronous Operation Test
+## 6. Asynchronous Operation Test
 
 Let's say we want to fetch some data with <strong>axios</strong>
 
@@ -490,7 +492,7 @@ test("fetchData4 Testing", async () => {
 });
 ```
 
-# 7. Jest Hooks - Lifecycle
+## 7. Jest Hooks - Lifecycle
 
 There are 4 frequently used hook functions in Jest:
 
@@ -596,7 +598,7 @@ Ran all test suites.
 
 
 
-# 8. Test Groups
+## 8. Test Groups
 
 In Jest, we use "describe()" API to manage all tests in groups:
 
@@ -695,7 +697,7 @@ Ran all test suites.
 
 
 
-# 9. Scope of Jest Hooks
+## 9. Scope of Jest Hooks
 
 There are 3 characteristics in the scope of Jest hooks:
 
