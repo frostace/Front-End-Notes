@@ -13,10 +13,11 @@
 |I/O | |
 |UI rendering | |
 
-![image](https://github.com/frostace/Front-End-Notes/blob/master/JavaScript/EventLoop.png)
+<img src="./JavaScript/EventLoop.png" alt="EventLoop">
 
 ### What do Promises do when they are settled?
-![image](https://github.com/frostace/Front-End-Notes/blob/master/JavaScript/PromisePushCallbacks.png)
+
+<img src="./JavaScript/PromisePushCallbacks.png" alt="PromisePushCallbacks">
 
 ### When is a microtask executed?
 * after macrotask callbacks only when task stack empty
