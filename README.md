@@ -10,7 +10,7 @@
 
 ## React
 * [Intro](./React/React%20Bootcamp.md)
-* [Lifecycle Methods](./React/React%20Lifecycle%20Methods.md)
+* [Lifecycle](./React/React%20Component%20Lifecycle.md)
 * [Hooks](./React/React%20Hooks.md)
 * [Virtual DOM](./React/Virtual%20DOM.md)
 * [Router](./React/React%20Router.md)
