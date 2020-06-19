@@ -4,7 +4,7 @@
 
 
 
-| Microtask | Macrotask (Task Queue) |
+| Macrotask (Task Queue) | Microtask |
 |----|----|
 |setTimeout | process.nextTick|
 |setInterval | Promises|

@@ -1,5 +1,9 @@
 # React Router
 
+## What is Routing?
+
+Routing is a mapping from a URL to a function. (Here the function is the extended meaning.)
+
 ## Usage
 
 ```shell
@@ -457,7 +461,14 @@ The explanation can be concluded into:
   * If we use HashRouter, the URL remains: `http://localhost:8080/#/about`, it's not sending any request to the back-end, and the hashchange event is not invoked either, so the original webpage is still showing, nothing happens.
   * If we use BrowserRouter with `history.pushState()`, refreshing the website or entering a URL in the browser input section will invoke a request to the server, but nothing is handling this request in our BrowserRouter implementation, so it will return an Error saying: `Cannot GET /about`
 
+<strong>Solution:</strong>
 
+We have to modify the server side so that when we are requesting `/about`, the server can response with index.html as well the browser can load the home page and be able to do the successive routing afterward. 
+
+||BrowserRouter|HashRouter|
+|---|---|---|
+|Pros|||
+|Cons|||
 
 ### React Router Composition
 
@@ -473,6 +484,7 @@ Now that we have had a basic understanding of how front-end routers work, let's 
 | ------------- | ------------------------------------------------------------ |
 | BrowserRouter | Pass current path down to the children components, <br />Provide methods to modify `url` and `state` for children components to call<br />Listen to the `popstate` event, it will be triggered by `history.pushState()` method |
 |HashRouter|Pass current path down to the children components, <br />Provide methods to modify `url` and `state` for children components to call<br />Listen to the `hashchange` event, it will be triggered by the change of URL with hashtag|
+|Router|A container of multiple routes, it is responsible for routing the user to the corresponding route.|
 |Switch|Wrap up `Route` components, it will be used as a filter and return only 1 `Route`. Without `Switch`, multiple `Route` components can be rendered in a single page.|
 | Route         | Accept the value passed from `BrowserRouter` Component and compare it with its natural prop `path`, and determine whether or not to call the render function |
 | Link          | Accept its natural prop `to`, update routing status with `pushState()`, and refresh the routerView with the method `onChangeView` got from `BrowserRouter` |
@@ -536,3 +548,5 @@ export default class Redirect extends Component {
 https://juejin.im/post/5e704729f265da571a39eb10
 
 https://juejin.im/post/5bcdb66251882577102a3b21
+
+https://juejin.im/post/5ba350ece51d450e4f38b435
