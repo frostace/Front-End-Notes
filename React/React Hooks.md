@@ -1,11 +1,17 @@
 # React Hooks
 
 [1. useState](###1. useState())
+
 [2. useEffect](###2. useEffect())
+
 [3. useReducer](###3. useReducer())
+
 [4. useContext](###4. useContext())
+
 [5. useRef](###5. useRef())
+
 [6. useCallback](###6. useCallback())
+
 [7. useMemo](###7. useMemo())
 
 
@@ -20,7 +26,7 @@ Hooks are functions that let us hook into react state and lifecycle features fro
 | useEffect()  | mimic lifecycle mthods                                       |
 | useReducer() | redux-like reducer, take in dispatch actions                 |
 | useContext() | manage global states instead of passing states as properties |
-| useRef()     |                                                              |
+| useRef()     | provides reference to a mutable object                       |
 
 ### 1. useState() 
 
