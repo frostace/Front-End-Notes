@@ -2,7 +2,9 @@
 
 ### Microtask v.s. Macrotask
 
+Each JS thread has an event loop, beginning with a macrotask and ended with a queue of microtasks.
 
+An event loop will be executed right after JS stack is empty.
 
 | Macrotask (Task Queue) | Microtask |
 |----|----|
