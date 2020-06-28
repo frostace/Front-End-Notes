@@ -4,9 +4,13 @@
 * [Position Property](./CSS/CSS%20Position%20Property.md)
 
 ## JavaScript
+* [Prototype Chain](./JavaScript/Prototype%20Chain.md)
+* [JS Event](./JavaScript/JavaScript%20Event.md)
 * [Event Loop](./JavaScript/EventLoop.md)
+* [Memory Cycle](./JavaScript/JavaScript%20Memory%20Cycle.md)
 * [Closure](./JavaScript/Closure.md)
 * [Ajax](./JavaScript/Ajax.md)
+* [Interview Review](./JavaScript/Interview%20Problems.md)
 
 ## React
 * [Intro](./React/React%20Bootcamp.md)
