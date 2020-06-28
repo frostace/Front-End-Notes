@@ -49,7 +49,7 @@ React is providing a decent performance to operate DOMs with no optimization at 
 
 ### Steps till changes in real DOM
 
-![image](https://github.com/frostace/Front-End-Notes/blob/master/React/VirtualDOM-realDOM.png)
+![image](./VirtualDOM-realDOM.png)
 
 ## 3. React Virtual DOM Principle
 
