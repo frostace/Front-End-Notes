@@ -9,6 +9,7 @@
 * [Event Loop](./JavaScript/EventLoop.md)
 * [Memory Cycle](./JavaScript/JavaScript%20Memory%20Cycle.md)
 * [Closure](./JavaScript/Closure.md)
+* [Debounce and Throttle](./JavaScript/Debounce%20and%20Throttle.md)
 * [Ajax](./JavaScript/Ajax.md)
 * [Interview Review](./JavaScript/Interview%20Problems.md)
 
