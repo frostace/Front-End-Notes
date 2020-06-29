@@ -352,6 +352,86 @@ new f();	//this is a constructor function
 
 
 
+## Problem Set
+
+```JavaScript
+var A = function() {};
+A.prototype.n = 1;
+var b = new A();
+A.prototype = {
+    n: 2,
+    m: 3
+}
+var c = new A();
+
+console.log(b.n);		// 1
+console.log(b.m);		// undefined
+
+console.log(c.n);		// 2
+console.log(c.m);		// 3
+```
+
+```JavaScript
+var F = function() {};
+
+Object.prototype.a = function() {
+  	console.log('a');
+};
+
+Function.prototype.b = function() {
+  	console.log('b');
+}
+
+var f = new F();
+
+// f's constructor is F, its prototype is F.prototype
+// so f.__proto__ = F.prototype, f.__proto__.__proto__ = Object.prototype
+f.a();
+f.b();
+
+// F's constructor is Function, its prototype is Function.prototype
+// so F.__proto__ = Function.prototype, F.__proto__.__proto__ = Object.prototype
+F.a();
+F.b();
+
+// a
+// Error
+// (if no error: ) a
+// (if no error: ) b
+```
+
+```JavaScript
+function Person(name) {
+    this.name = name
+}
+let p = new Person('Tom');
+// 1. p.__proto__ is？
+// 		Person.prototype
+// 2. Person.__proto__ is？
+// 		Function.prototype
+```
+
+```JavaScript
+var foo = {},
+    F = function(){};
+Object.prototype.a = 'value a';
+Function.prototype.b = 'value b';
+
+console.log(foo.a);
+console.log(foo.b);
+
+console.log(F.a);
+console.log(F.b);
+
+// foo.__proto__ = Object.prototype
+// F.__proto__ = Function.prototype, F.__proto__.__proto__ = Object.prototype
+// Answer:
+// value a
+// undefined
+// value a
+// value b
+```
+
 
 
 
