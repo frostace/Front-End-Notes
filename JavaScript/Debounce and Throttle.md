@@ -18,7 +18,7 @@ In the debouncing technique, no matter how many times the user fires the event, 
 // no debounce
 $('input.user-name').on('input', function () {
     $.ajax({
-        url: `https://someRandomGeneratorWebsite.com`,
+        url: `https://yesno.wtf/api`,
         method: 'post',
         data: {
             username: $(this).val(),
@@ -52,7 +52,7 @@ function debounce(fn, interval = 300) {
 
 $('input.user-name').on('input', debounce(function () {
     $.ajax({
-        url: `https://someRandomGeneratorWebsite.com`,
+        url: `https://yesno.wtf/api`,
         method: 'post',
         data: {
             username: $(this).val(),
