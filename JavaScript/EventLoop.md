@@ -29,8 +29,19 @@ Note: Newly added microtasks during execution of a microtask will be appended to
 ### Why microtask?
 * microtasks are invented for scheduling tasks that should be executed immediately after the currently executed script ends.
 
+setTimeout(callback, ms)
+
+* Run the following steps in parallel:
+  * wait ms milliseconds
+  * queue a task to run the following steps
+    * invoke callback
+
+![image-20200629195824663](./event-loop-jake.png)
+
 ### Reference
 
 [https://tuobaye.com/2017/10/24/%E9%80%9A%E8%BF%87microtasks%E5%92%8Cmacrotasks%E7%9C%8BJavaScript%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/](https://tuobaye.com/2017/10/24/通过microtasks和macrotasks看JavaScript异步任务执行顺序/)
 
 https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/?utm_source=html5weekly&utm_medium=email
+
+https://www.youtube.com/watch?v=cCOL7MC4Pl0
