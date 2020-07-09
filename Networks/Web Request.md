@@ -20,11 +20,11 @@ Parsing
 
 DOM Tree
 
-Layout Tree
+Render Tree
 
 painting
 
-
+![HTML-parsing](/Users/frostace/Documents/GitHub/Front-End-Notes/Networks/HTML-parsing.png)
 
 
 
