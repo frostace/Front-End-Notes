@@ -124,3 +124,28 @@ $(window).on(
 );
 ```
 
+## Difference between `Throttle` and `Debounce`
+
+* Throttle
+
+  Attempts that are not executed don't influence the time window at all
+
+  Scenarios
+
+  * Drag / Scroll / Resize
+  * Animation
+
+* Debounce
+
+  Attemets that are not executed will refresh the start of the time window
+
+  Scenarios:
+
+  * Search Engine Autocomplete
+  * Form Submission
+
+<img src="./Debounce and Throttle.gif">
+
+### Reference
+
+https://zhuanlan.zhihu.com/p/107473482
