@@ -1,7 +1,18 @@
 # Front-End-Notes
 
+## HTML
+
+* Read size and location of DOM element
+
+  https://segmentfault.com/a/1190000007687940
+
 ## CSS
+
 * [Position Property](./CSS/CSS%20Position%20Property.md)
+* [Box Model](./CSS/Box%20Model.md)
+* Selector Priority(./CSS/Selector%20Priority.md)
+* BFC(./CSS/BFC.md)
+* `opacity` vs `visibility` vs `display`
 
 ## JavaScript
 * [Prototype Chain](./JavaScript/Prototype%20Chain.md)
@@ -10,7 +21,9 @@
 * [Memory Cycle](./JavaScript/JavaScript%20Memory%20Cycle.md)
 * [Closure](./JavaScript/Closure.md)
 * [Debounce and Throttle](./JavaScript/Debounce%20and%20Throttle.md)
-* [Ajax](./JavaScript/Ajax.md)
+* Ajax(./JavaScript/Ajax.md)
+* [Deep Copy](./JavaScript/Deep%20Copy.md)
+* [Regular Expression](./JavaScript/Regexp.md)
 * [Interview Review](./JavaScript/Interview%20Problems.md)
 
 ## React
@@ -33,6 +46,7 @@
 ## Node
 
 * [Intro](./Node/Node%20bootcamp.md)
+* [Event Bus](./Node/Event%20Bus.md)
 
 ## Webpack
 
@@ -41,31 +55,39 @@
 ## Networks
 
 * [HTTP 1.0 / 1.1 / 2.0](./Networks/HTTP-version.md)
-
-* fetch / ajax / axios
-
-  https://segmentfault.com/a/1190000012836882
-
-  https://zhuanlan.zhihu.com/p/58062212
-
 * [What happened after you enter a URL in browser?](./Networks/Web%20Request.md)
-
 * DNS
-
-* TCP / UDP
-
-* Security
-
+* [TCP / UDP](./Networks/TCP UDP.md)
+* [Cross-Site].  (./Networks/Cross%20Site.md)
+* [Security](./Networks/Security.md)
   * XSS (Cross Ste Scripting)
 
-    https://www.jianshu.com/p/c2877d36d279
+  * CSRF (Cross-Site Request Forgery)
 
-    1. Encode response data so that scripts will not be executed
-    2. limit form input length
+  * SSRF (Server-Side Request Forgery)
 
-  * CSRF (Cross-site request forgery)
+  * DDoS (Distributed Denial of Service)
 
-    Take use of other user's verification, and visit some websites with their browser
+## Browser
 
-  * SSRF
+* [Relayout and Repaint](./Browser/Reflow%20Repaint.md)
+
+## Standard & Library
+
+* CommonJS vs ES6
+
+## Projects
+
+* Node
+* Babel
+* i18n
+* Vue 3.0, Vue 
+* [Design Pattern](./Design%20Pattern.md)
+* [Performance Optimization](./Performance%20Optimization.md)
+* Sorting
+* [Cross-Origin] (./Networks/Cross%20Origin.md)
+
+## Interviews
+
+* [ByteDance](./Interview/ByteDance.md)
 
