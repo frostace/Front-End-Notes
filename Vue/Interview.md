@@ -180,11 +180,10 @@
       `state`, `getters`, `mutations`, `actions`, `modules`
 
     * When to use Vuex?
-    
-  * multiple components are dependent on a same state
+      * multiple components are dependent on a same state
       * different behaviors are trying to modify the same state
 
-    * What is a state is a complex type variable
+    * What if a state is a complex type variable
 
       When we are trying to copy the state and modify it, it will alter the original state as well since the copy is referencing the original data. So we should deepcopy the object and modify it afterward.
 
@@ -288,18 +287,17 @@
 
 ### Reference
 
-https://juejin.im/post/5dd23a34f265da0be14f7035
+v-model: https://juejin.im/post/5dd23a34f265da0be14f7035
 
-https://juejin.im/post/5dbbecadf265da4d1d32f575
+vue key: https://juejin.im/post/5dbbecadf265da4d1d32f575
 
-https://juejin.im/entry/5aced80b518825482e39441e
+vue.nextTick: https://juejin.im/entry/5aced80b518825482e39441e
 
-https://juejin.im/post/5dba91e4518825647e4ef18b
+vuex: https://juejin.im/post/5dba91e4518825647e4ef18b
 
-https://juejin.im/post/5d9c43b751882507b40d3376
+vue-router: https://juejin.im/post/5d9c43b751882507b40d3376
 
-https://zhuanlan.zhihu.com/p/54112006
+vue-router guard: https://zhuanlan.zhihu.com/p/54112006
 
-https://juejin.im/post/5cde0b43f265da03867e78d3
+x-component communication: https://juejin.im/post/5cde0b43f265da03867e78d3, https://juejin.im/post/5d267dcdf265da1b957081a3
 
-https://juejin.im/post/5d267dcdf265da1b957081a3
