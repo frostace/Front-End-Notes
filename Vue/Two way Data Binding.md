@@ -36,21 +36,21 @@ var $output = $("#output");
 
 // A controller for getting/setting the bound variable
 var message = {
-  /*
-  content: null,				
-  get: function() {
-    return this.content;
-  },
-  */
-  set: function(val) {
-    //this.content = val;
-    $output.html(val); 	// from JS to DOM
-    $input.val(val);		// pre-fill the input with initial DOM innerHTML 
-  },
+    /*
+    content: null,				
+    get: function() {
+      	return this.content;
+    },
+    */
+    set: function(val) {
+        //this.content = val;
+        $output.html(val); 	// from JS to DOM
+        $input.val(val);		// pre-fill the input with initial DOM innerHTML 
+    },
 };
 // Listens for changes in input
 $input.on("keyup", function() {
-  message.set($(this).val());		// from DOM to JS
+  	message.set($(this).val());		// from DOM to JS
 });
 message.set("jQuery data binding is far less sexy.");
 ```
@@ -62,18 +62,18 @@ Simplest example:
 
 ```HTML
 <div id="app-6">
-  <p>{{ message }}</p>
-  <!-- v-model alone can do two-way data binding -->
-  <input v-model="message">	
+    <p>{{ message }}</p>
+    <!-- v-model alone can do two-way data binding -->
+    <input v-model="message">	
 </div>
 ```
 
 ```JavaScript
 var app6 = new Vue({
-  el: '#app-6',
-  data: {
-    message: 'Hello Vue!'
-  }
+    el: '#app-6',
+    data: {
+      	message: 'Hello Vue!'
+    }
 })
 ```
 
@@ -163,13 +163,13 @@ See an example of overriding these attributes with Object.defineProperty()
 var Book = {}
 var name = '';
 Object.defineProperty(Book, 'name', {
-  set: function (value) {
-    name = value;
-    console.log('You named a book: ' + value);
-  },
-  get: function () {
-    return '《' + name + '》'
-  }
+    set: function (value) {
+        name = value;
+        console.log('You named a book: ' + value);
+    },
+    get: function () {
+      	return '《' + name + '》'
+    }
 })
  
 Book.name = 'vue guide';  // You named a book: vue guide
@@ -205,7 +205,7 @@ function defineReactive(data, key, val) {
         },
         set: function(newVal) {
             val = newVal;
-            console.log('Attribute ' + key + ' has been listened，curr value：“' + newVal.toString() + '”');
+            console.log('Attribute ' + key + ' has been listened，curr value："' + newVal.toString() + '"');
         }
     });
 }
