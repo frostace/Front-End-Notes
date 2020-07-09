@@ -43,11 +43,53 @@
 ```JavaScript
 func.call([thisArg[, arg1, arg2, ...argN]])
 ```
+​	Implement custom `call()`
+
+```js
+//模拟 call bar.mycall(null);
+//实现一个call方法；
+Function.prototype.myCall = function(context) {
+    //此处没有考虑context非object情况
+    context.fn = this;
+    let args = [];
+    for (let i = 1, len = arguments.length; i < len; i++){
+        args.push(arguments[i]);
+    }
+    context.fn(...args);
+    let result = context.fn(...args);
+    delete context.fn;
+    return result;
+};
+```
+
 * apply()
 
 ```JavaScript
 func.apply(thisArg, [ argsArray])
 ```
+​	Implement custom `apply()`
+
+```js
+//模拟 apply
+Function.prototype.myapply = function(context,arr){
+    var context = Object(context) || window;
+    context.fn = this;
+
+    var result;
+    if (!arr) {
+        result = context.fn();
+    } else {
+        var args = [];
+        for (var i = 0,len = arr.length; i < len; i++) {
+            args.push("arr["+ i +"]");
+        }
+        result = eval("context.fn("+ args + ")");
+    }
+    delete context.fn;
+    return result;
+}
+```
+
 * bind()
 
 ```JavaScript
@@ -57,7 +99,7 @@ let boundFunc = func.bind(thisArg[, arg1[, arg2[, ...argN]]])
 
 ```JavaScript
 // Does not work with `new funcA.bind(thisArg, args)`
-if (!Function.prototype.bind) (function(){
+if (!Function.prototype.bind) (function() {
     var slice = Array.prototype.slice;
     Function.prototype.bind = function() {
         var thatFunc = this, thatArg = arguments[0];
@@ -68,7 +110,7 @@ if (!Function.prototype.bind) (function(){
             throw new TypeError('Function.prototype.bind - ' +
                    'what is trying to be bound is not callable');
         }
-        return function(){
+        return function() {
             var funcArgs = args.concat(slice.call(arguments))
             return thatFunc.apply(thatArg, funcArgs);
         };
@@ -153,3 +195,21 @@ if (!Function.prototype.bind) (function(){
         console.log(myArray[idx]);
     }
     ```
+
+29. Reproduce `instanceof`
+
+    ```JavaScript
+    // simlutate instanceof
+    function instance_of(L,R){
+        let O = R.prototype;		// 取 R 的显示原型
+        L = L.__proto__;				// 取 L 的隐式原型
+        while (L !== null) {
+            if (O === L) return true;
+            L = L.__proto__;
+        }
+      
+      	return false;
+    }
+    ```
+
+    
