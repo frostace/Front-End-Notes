@@ -4,6 +4,13 @@
 
 ## Content Box
 
+`Content Box` means that the box refers to the content area, so the `width` and the `height` are all set for the content area, not including padding.
+
+```text
+width = content width
+background width = content width + padding width
+```
+
 ```css
 .box {
     background-color: red;
@@ -18,6 +25,13 @@
 ![image-20200706182629773](./content-box.png)
 
 ## Border Box
+
+`Border Box` means that the box refers to whatever is inside the `border` (inclusive), so the `width` and the `height` are set for `content width` + `padding width` + `border width`
+
+```text
+width = content width + padding width + border width
+background width = content width + padding width
+```
 
 ```css
 .box {
