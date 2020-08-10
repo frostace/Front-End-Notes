@@ -1,6 +1,8 @@
+# Horse Race
+
 Given 64 horses, 8 lanes, at lease how many matches do we have to arrange to find the 4-th fastest horse?
 
-## Divide into 8 groups (8 times)
+### Divide into 8 groups (8 times)
 Last 4 in each group are eliminated
 [$a_1$, $a_2$, $a_3$, $a_4$, x, x, x, x]
 [$b_1$, $b_2$, $b_3$, $b_4$, x, x, x, x]
@@ -11,7 +13,7 @@ Last 4 in each group are eliminated
 [$g_1$, $g_2$, $g_3$, $g_4$, x, x, x, x]
 [$h_1$, $h_2$, $h_3$, $h_4$, x, x, x, x]
 
-##Compare top horse in each group (1 time)
+### Compare top horse in each group (1 time)
 
 [$a_1$, $a_2$, $a_3$, $a_4$, x, x, x, x]
 [$b_1$, $b_2$, $b_3$, $b_4$, x, x, x, x]
@@ -22,7 +24,7 @@ Let's the order be: $a_1$ > $b_1$ > $c_1$ > $d_1$ > $e_1$ > $f_1$ > $g_1$ > $h_1
 Last 4 horse and their corresponding groups are eliminated
 [$a_1$, $b_1$, $c_1$, $d_1$, $e_1$, $f_1$, $g_1$, $h_1$] -> [$a_1$, $b_1$, $c_1$, $d_1$, x, x, x, x]
 
-## Compare second top horse in each group (2 times)
+### Compare second top horse in each group (2 times)
 
 [$a_1$, $a_2$, $a_3$, $a_4$]
 [$b_1$, $b_2$, $b_3$, $b_4$]
@@ -37,3 +39,17 @@ Notice that candidates in the top-left section are still possible to be top 4 ov
 [$d_1$, *, *, *]
 
 So we have 9 candidates left, we need 2 more matches to find the 4-th horse.
+
+# Red Blue Ink
+
+![img](https://yanhaijing.com/blog/485.png)
+
+Since we are comparing the ratio, let's analyze the denominator and numerator respectively.
+
+Notice that the denominators are the same, the total volume won't change after 2 operations.
+
+So, the amount of blue ink left in the red bottle should be the volume of blue ink contained in 1 spoon.
+
+the amount of red ink left in the blue bottle should be the volume of 1 full spoon - the red ink taken away by the 2nd spoon.
+
+We can observe that they are supposed to be the same.
