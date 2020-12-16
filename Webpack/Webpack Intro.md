@@ -55,6 +55,8 @@ We have `mode`, `entry`, `plugin`, `module`, `rule`, ...
 
 What are these things? And what are their relationships?
 
+Webpack workflow
+
 
 
 

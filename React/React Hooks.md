@@ -249,9 +249,9 @@ const MyState = (props) => {
         state1: 0,
         state2: 0,
     };
-
+		
     const [state, dispatch] = useReducer(MyReducer, initialState);
-
+		
     // State 1
     const mutateState1 = async (username) => {
         dispatch({
@@ -267,7 +267,7 @@ const MyState = (props) => {
             payload: newState,
         });
     };
-
+		
     return (
         <MyContext.Provider
             value={{
@@ -359,10 +359,10 @@ const useCallback = (callback, dependencies) => {
 
 ```jsx
 const memoizedCallback = useCallback(
-  () => {
-    doSomething(a, b);
-  },
-  [a, b],
+    () => {
+      	doSomething(a, b);
+    },
+    [a, b],
 );
 ```
 

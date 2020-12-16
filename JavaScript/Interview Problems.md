@@ -92,6 +92,8 @@ Function.prototype.myapply = function(context,arr){
 
 * bind()
 
+Note that if we use bind to change context twice, it will not take effect.
+
 ```JavaScript
 let boundFunc = func.bind(thisArg[, arg1[, arg2[, ...argN]]])
 ```
@@ -200,7 +202,7 @@ if (!Function.prototype.bind) (function() {
 
     ```JavaScript
     // simlutate instanceof
-    function instance_of(L,R){
+    function instance_of(L, R) {
         let O = R.prototype;		// 取 R 的显示原型
         L = L.__proto__;				// 取 L 的隐式原型
         while (L !== null) {

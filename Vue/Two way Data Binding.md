@@ -205,9 +205,10 @@ function defineReactive(data, key, val) {
         },
         set: function(newVal) {
             val = newVal;
-            console.log('Attribute ' + key + ' has been listened，curr value："' + newVal.toString() + '"');
+            console.log('Attribute ' + key + ' has been updated，curr value："' + newVal.toString() + '"');
         }
     });
+  	console.log('Attribute ' + key + ' has been listened');
 }
  
 function observe(data) {
@@ -228,8 +229,9 @@ var library = {
     book2: ''
 };
 observe(library);
-library.book1.name = 'vue guide';  	// Attribute name has been listened，curr value：“vue guide”
-library.book2 = 'no such book';  		// Attribute book2 has been listened，curr value：“no such book”
+library.book1.name = 'vue guide';  	// Attribute name has been updated，curr value：“vue guide”
+library.book2 = 'no such book';  		// Attribute book2 has been updated，curr value：“no such book”
+library.book2.name = "no name";			// Non-existing attribute is not reactive
 ```
 
 

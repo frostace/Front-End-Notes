@@ -145,6 +145,7 @@
 * how to add a displacement to an element
   * Diff: `transform` vs `left`, why? -> browser rendering process
 * how to center an element -> flex / margin
+* what does it mean if I set `flex: 1`? 
 
 ### js
 
@@ -209,3 +210,105 @@
   })
   ```
 
+## 3rd Round
+
+### Projects and General Questions
+
+* Challenging Issues in your projects
+* How do you study Frontend
+* What is your plan in the upcoming 6 months
+* How did you do your documentation management in your projects
+* What is your understanding in cross-device development
+
+### Networks
+
+* HTTP methods
+  * When do you use `OPTIONS` method
+* HTTP status code
+  * 304 related. Given a request header and a response header, what is the status code if another request is sent 35 seconds later? What if 65 seconds later?
+
+###CSS
+*  box-model
+
+### Coding
+
+* Leetcode 455 Assign Cookies
+
+  ```js
+  var findContentChildren = function(demands, cookies) {
+      demands.sort((a, b) => b - a);
+      cookies.sort((a, b) => b - a);
+      
+      let demandIdx = 0;
+      let cookieIdx = 0;
+      let satisfiedNum = 0;
+      
+      while (demandIdx < demands.length && cookieIdx < cookies.length) {
+          if (cookies[cookieIdx] >= demands[demandIdx]) {
+              satisfiedNum += 1;
+              demandIdx += 1;
+              cookieIdx += 1;
+          } else {
+              demandIdx += 1;
+          }
+      }
+      
+      return satisfiedNum;
+  };
+  ```
+
+  
+
+## HR Round
+
+
+
+## 5th Round Cross Dept. Interview
+
+* Why FE?
+* Project related
+* React Router Guard Principle?
+* React Router Types -> history / hash
+* If I have both Vue and React application running on the same website, is it possible for both of them to get the route status at the same time?
+* Difference between getting page route from `window.location` and inside React props
+* Event Loop?
+* requestAnimationFrame vs setTimeout
+  * where did requestAnimationFrame take place within a certain frame?
+
+### Coding
+
+* Maximum Number After Dropping K Bits
+
+  ```
+  Given an integer `num` and an integer `bitsToDrop`, design a function that returns the maximum possible number after dropping `bitsToDrop` bits out of `num`.
+  
+  Example:
+  num = 9817654, bitsToDrop = 4 -> return: 987
+  num = 8911564, bitsToDrop = 1 -> return: 911564
+  num = 56541978465231, bitsToDrop = 7 -> return: 9865231
+  ```
+
+  ```js
+  function test(num, bitsToDrop) {
+      let numStr = String(num);
+      let len = numStr.length;
+      let bitsToKeep = len - bitsToDrop;
+      let stack = [];
+      let currNum, bitsDropped = 0;
+      for (let i = 0; i < len; i++) {
+          currNum = numStr.charAt(i);
+          while (bitsDropped < bitsToDrop && stack[stack.length - 1] < currNum) {
+              stack.pop();
+              bitsDropped += 1;
+          }
+          // if not greater than stack tail and stack full, do not push
+          if (stack.length === bitsToKeep && currNum <= stack[stack.length - 1]) continue;
+          stack.push(currNum);
+          // console.log(currNum, bitsDropped, stack);
+      }
+      
+      return Number(stack.join(""));
+  }
+  ```
+
+  

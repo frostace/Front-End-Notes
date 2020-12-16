@@ -137,9 +137,9 @@
        
        ```html
        <picture>
-         <source media="(max-width: 799px)" srcset="elva-480w-close-portrait.jpg">
-         <source media="(min-width: 800px)" srcset="elva-800w.jpg">
-         <img src="elva-800w.jpg" alt="Chris standing up holding his daughter Elva">
+           <source media="(max-width: 799px)" srcset="elva-480w-close-portrait.jpg">
+           <source media="(min-width: 800px)" srcset="elva-800w.jpg">
+           <img src="elva-800w.jpg" alt="Chris standing up holding his daughter Elva">
        </picture>
        ```
 
@@ -156,26 +156,28 @@
      <img src="images/loading.gif" data-src="images/4.png">
      ...
      
-     function lazyload() {
-     	    var images = document.getElementsByTagName('img');
-     	    var len    = images.length;
-     	    var n      = 0;      // maintain idx of img loaded
-     	    return function() {
-               var seeHeight = document.documentElement.clientHeight;
-               var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-               for(var i = n; i < len; i++) {
-                   if(images[i].offsetTop < seeHeight + scrollTop) {
-                       if(images[i].getAttribute('src') === 'images/loading.gif') {
-                           images[i].src = images[i].getAttribute('data-src');
-                       }
-                       n = n + 1;
-                   }
-               }
-     	    }
-     	}
-     	var loadImages = lazyload();
-     	loadImages();          // load images within initial viewport
-     	window.addEventListener('scroll', loadImages, false);
+     {
+         function lazyload() {
+             let images = document.getElementsByTagName('img');
+             let len    = images.length;
+             let n      = 0;      // maintain idx of img loaded
+             return function() {
+                 let seeHeight = document.documentElement.clientHeight;
+                 let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                 for (let i = n; i < len; i++) {
+                     if (images[i].offsetTop < seeHeight + scrollTop) {
+                         if (images[i].getAttribute('src') === 'images/loading.gif') {
+                             images[i].src = images[i].getAttribute('data-src');
+                         }
+                         n = n + 1;
+                     }
+                 }
+             }
+         }
+         let loadImages = lazyload();
+         loadImages();          // load images within initial viewport
+         window.addEventListener('scroll', loadImages, false);
+     }
      ```
 
   2. add `throttle` for the `lazyload()` function
@@ -187,38 +189,40 @@
      <img src="images/loading.gif" data-src="images/4.png">
      ...
      
-     function throttle(fn, interval = 300) {
-         let canRun = true;
-         return function () {
-             if (!canRun) return;
-             canRun = false;
-             fn.apply(this, arguments);
-             setTimeout(() => {
-                 canRun = true;
-             }, interval);
-         };
-     }
+     {
+       	function throttle(fn, interval = 300) {
+             let canRun = true;
+             return function () {
+                 if (!canRun) return;
+                 canRun = false;
+                 fn.apply(this, arguments);
+                 setTimeout(() => {
+                     canRun = true;
+                 }, interval);
+             };
+         }
      
-     function lazyload() {
-     	    var images = document.getElementsByTagName('img');
-     	    var len    = images.length;
-     	    var n      = 0;      // maintain idx of img loaded
-     	    return function() {
-               var seeHeight = document.documentElement.clientHeight;
-               var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-               for(var i = n; i < len; i++) {
-                   if(images[i].offsetTop < seeHeight + scrollTop) {
-                       if(images[i].getAttribute('src') === 'images/loading.gif') {
-                           images[i].src = images[i].getAttribute('data-src');
-                       }
-                       n = n + 1;
-                   }
-               }
-     	    }
-     	}
-     	var loadImages = lazyload();
-     	loadImages();          // load images within initial viewport
-     	window.addEventListener('scroll', throttle(loadImages, 300), false);
+       	function lazyload() {
+             let images = document.getElementsByTagName('img');
+             let len    = images.length;
+             let n      = 0;      // maintain idx of img loaded
+             return function() {
+                 let seeHeight = document.documentElement.clientHeight;
+                 let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                 for (let i = n; i < len; i++) {
+                     if(images[i].offsetTop < seeHeight + scrollTop) {
+                         if (images[i].getAttribute('src') === 'images/loading.gif') {
+                             images[i].src = images[i].getAttribute('data-src');
+                         }
+                         n = n + 1;
+                     }
+                 }
+             }
+         }
+         let loadImages = lazyload();
+         loadImages();          // load images within initial viewport
+         window.addEventListener('scroll', throttle(loadImages, 300), false);
+     }
      ```
 
 * Caching

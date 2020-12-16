@@ -1,4 +1,4 @@
-# Prototype Chain
+#  Prototype Chain
 
 ## Prerequisite:
 
@@ -121,9 +121,9 @@ console.log(son instanceof Son); 		// true
 `B.prototype.isPrototypeOf(A)` is the same as `A instanceof B`
 
 ```JavaScript
-console.log(Object.prototype.isPrototypeOf(son));	//true
-console.log(Father.prototype.isPrototypeOf(son));	//true
-console.log(Son.prototype.isPrototypeOf(son));		//true
+console.log(Object.prototype.isPrototypeOf(son));	// true
+console.log(Father.prototype.isPrototypeOf(son));	// true
+console.log(Son.prototype.isPrototypeOf(son));		// true
 ```
 
 ### 3. 
@@ -139,9 +139,8 @@ console.log(Son.prototype.isPrototypeOf(son));		//true
 
 ## 1. 
 
-## 2. 
+## 2. Inheritance
 
-## 3. Encapsulation
 
 ### Problems of Prototype Chain
 
@@ -153,10 +152,10 @@ console.log(Son.prototype.isPrototypeOf(son));		//true
 Call the constructor of parent object manully inside child object to alter the context of `this`
 
 ```JavaScript
-function Father(){
-		this.colors = ["red","blue","green"];
+function Father() {
+		this.colors = ["red", "blue", "green"];
 }
-function Son(){
+function Son() {
 		Father.call(this);			// we can pass arguments to parent constructor here
 }
 var son1 = new Son();
@@ -173,13 +172,13 @@ console.log(son2.colors);		// "red,blue,green", children objects don't share the
 2. We have to define every method inside constructor, so that the parent object will not be reusable
 
 ```JavaScript
-function Father(){
+function Father() {
 		this.colors = ["red","blue","green"];
 }
 Father.prototype.show = function() {
   	console.log("show");
 }
-function Son(){
+function Son() {
 		Father.call(this);			// we can pass arguments to parent constructor here
 }
 var son1 = new Son();
@@ -198,7 +197,7 @@ function Father(name) {
 Father.prototype.sayName = function() {
 		console.log(this.name);
 };
-function Son(name,age){
+function Son(name, age) {
     Father.call(this, name);		// inherit instance property，call Father() 1st time
     this.age = age;
 }
@@ -229,8 +228,8 @@ It will call Father() constructor function twice, making redundant consumption.
 * Return a new instance of this temporary object
 
 ```JavaScript
-function object(o){
-    function F(){}		// temporary constructor
+function object(o) {
+    function F() {}		// temporary constructor
     F.prototype = o;	// append object passed in
     return new F();		// return instance
 }
@@ -248,7 +247,7 @@ var anotherPerson = object(person);
 anotherPerson.friends.push("Rob");
 var yetAnotherPerson = object(person);
 yetAnotherPerson.friends.push("Style");
-console.log(person.friends);									// ["Van", "Louis", "Nick", "Style"]
+console.log(person.friends);									// ["Van", "Louis", "Nick", "Rob", "Style"]
 ```
 
 This problem is solved in ES5 via `Object.create()`
@@ -284,14 +283,14 @@ Parasitic Inheritance takes use of the factory mode, it creates a function which
 
 ```JavaScript
 // prototypal inheritance
-function object(o){
-    function F(){}
+function object(o) {
+    function F() {}
     F.prototype = o;
     return new F();
 }
 
 // parasitic inheritance
-function createAnother(original){
+function createAnother(original) {
     var clone = object(original);		// create a new object with object() function
     clone.sayHi = function() {			// enhance the object
       	console.log("hi");
@@ -306,25 +305,29 @@ Also, methods defined in this way cannot be reusable.
 
 ## Parasitic Combined Inheritance
 
-We don't have to call the constructor of the parent object when assigning prototype for child object.
+Compared with Combined Inheritance, we don't have to call the constructor of the parent object when assigning prototype for child object.
 
 ```JavaScript
-function extend(subClass, superClass) {
-    var F = function() {};
-    F.prototype = superClass.prototype;
-    subClass.prototype = new F(); 
-    subClass.prototype.constructor = subClass;
+function object(o) {
+    function F() {};
+    F.prototype = o;
+    return new F();
+}
 
-    subClass.superclass = superClass.prototype;
-    if (superClass.prototype.constructor == Object.prototype.constructor) {
-      	superClass.prototype.constructor = superClass;
-    }
+function inheritPrototype(subType, superType) {
+    let parasite = object(superType.prototype);   // create a copy of the superType prototype
+    parasite.constructor = subType;    						// enhance object
+    subType.prototype = parasite;    							// link prototype chain
 }
 ```
 
+## 3. Encapsulation
 
+TBD
 
-## 4.
+## 4. Polymorphism
+
+TBD
 
 # Methods to check types and object prototypes
 
@@ -334,14 +337,14 @@ function extend(subClass, superClass) {
 |---|---|
 |toString|returns a string representing the object|
 |valueOf|returns the primitive value of the specified object|
-|typeof|determine type of an expression:<br />number, boolean, string, function, object, undefined|
+|typeof|determine type of an expression:<br />number, boolean, string, function, object, undefined, Symbol, BigInt|
 |instanceof|determine whether operand 1 is an instance of operand 2 along the prototype chain|
 |isPrototypeOf|determine whether the caller is a prototype of the argument|
 |Object.prototype.toString.call(targetObj).slice(8, -1)|best way to check type of a variable|
 
 ```JavaScript
-function f(){
-    if(this instanceof arguments.callee)
+function f() {
+    if (this instanceof arguments.callee)
       	console.log('this is a constructor function');
     else
       	console.log('this is a normal function');
@@ -354,98 +357,23 @@ new f();	//this is a constructor function
 
 ## Problem Set
 
-```JavaScript
-var A = function() {};
-A.prototype.n = 1;
-var b = new A();
-A.prototype = {
-    n: 2,
-    m: 3
-}
-var c = new A();
-
-console.log(b.n);		// 1
-console.log(b.m);		// undefined
-
-console.log(c.n);		// 2
-console.log(c.m);		// 3
-```
-
-```JavaScript
-var F = function() {};
-
-Object.prototype.a = function() {
-  	console.log('a');
-};
-
-Function.prototype.b = function() {
-  	console.log('b');
-}
-
-var f = new F();
-
-// f's constructor is F, its prototype is F.prototype
-// so f.__proto__ = F.prototype, f.__proto__.__proto__ = Object.prototype
-f.a();
-f.b();
-
-// F's constructor is Function, its prototype is Function.prototype
-// so F.__proto__ = Function.prototype, F.__proto__.__proto__ = Object.prototype
-F.a();
-F.b();
-
-// a
-// Error
-// (if no error: ) a
-// (if no error: ) b
-```
-
-```JavaScript
-function Person(name) {
-    this.name = name
-}
-let p = new Person('Tom');
-// 1. p.__proto__ is？
-// 		Person.prototype
-// 2. Person.__proto__ is？
-// 		Function.prototype
-```
-
-```JavaScript
-var foo = {},
-    F = function(){};
-Object.prototype.a = 'value a';
-Function.prototype.b = 'value b';
-
-console.log(foo.a);
-console.log(foo.b);
-
-console.log(F.a);
-console.log(F.b);
-
-// foo.__proto__ = Object.prototype
-// F.__proto__ = Function.prototype, F.__proto__.__proto__ = Object.prototype
-// Answer:
-// value a
-// undefined
-// value a
-// value b
-```
-
+[Link](./Program%20Reading.md)
 
 
 
 ### Reference
 
-https://juejin.im/post/5d713de26fb9a06ad3474c15
+Inheritance illustrated with imgs: https://juejin.im/post/5c433e216fb9a049c15f841b
 
-https://juejin.im/post/5c72a1766fb9a049ea3993e6
+Prototype Chain illustrated with imgs: https://juejin.im/post/5d713de26fb9a06ad3474c15
 
-https://juejin.im/post/58f94c9bb123db411953691b
+Interview Problems: https://juejin.im/post/5c72a1766fb9a049ea3993e6
 
-https://www.crockford.com/javascript/prototypal.html
+Different Inheritance Methods: https://juejin.im/post/58f94c9bb123db411953691b
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
+Prototypal Inheritance in JavaScript by 'Douglas Crockford': https://www.crockford.com/javascript/prototypal.html
 
-https://www.jianshu.com/p/a1238c370d75
+Object.create(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
+
+`typeof` vs `instanceof` vs `valueOf`: https://www.jianshu.com/p/a1238c370d75
 

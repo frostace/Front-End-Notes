@@ -118,7 +118,7 @@ const clone = parent => {
             // 处理对象原型
             proto = Object.getPrototypeOf(parent);
             // 利用Object.create切断原型链
-            child = Object.create(protoc);
+            child = Object.create(proto);
       	}
 
         // 处理循环引用
