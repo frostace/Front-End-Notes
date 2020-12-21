@@ -47,6 +47,14 @@ console.log(Number.isSafeInteger(Number.MAX_SAFE_INTEGER + 10)); // false
 
 * BigInt
 
+  ```js
+  let foo = BigInt(Number.MAX_SAFE_INTEGER));
+  let bar = foo + BigInt(1);
+  console.log(bar); // 9007199254740992n
+  ```
+
+  Note: Only work for `Integers`, not `floats`
+
 * big.js
 
   Benefits:
@@ -61,6 +69,28 @@ console.log(Number.isSafeInteger(Number.MAX_SAFE_INTEGER + 10)); // false
   ```
 
   Usage:
+
+  ```js
+  import { Big } from "big.js";
+  
+  export const foo = new Big("0.1");
+  export const bar = foo.plus(new Big("0.2"));
+  
+  // To get a number:
+  const x: number = Number(bar.toString()); // 0.3
+  ```
+
+  ```js
+  import { Big } from "big.js";
+  
+  export const foo = new Big("9007199254740991");
+  export const bar = foo.plus(new Big("1"));
+  
+  // To get a number:
+  const x: number = Number(bar.toString()); // 9007199254740992
+  ```
+
+  
 
   ```JavaScript
   import { Big } from 'big.js';
@@ -172,5 +202,6 @@ Number = Coefficient * 10<sup>Exponent</sup>
 
 ## Reference 
 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
 https://github.com/douglascrockford/DEC64
 

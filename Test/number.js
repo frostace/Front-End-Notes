@@ -1,1 +1,3 @@
-console.log(Number.MAX_VALUE + 10 ** 291);
+let foo = BigInt(Number.MAX_SAFE_INTEGER);
+let bar = foo + BigInt(1);
+console.log(bar);
