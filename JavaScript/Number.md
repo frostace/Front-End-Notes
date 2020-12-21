@@ -203,6 +203,8 @@ Number = Coefficient * 10<sup>Exponent</sup>
 ## Reference 
 
 https://basarat.gitbook.io/typescript/recap/number
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
+
 https://github.com/douglascrockford/DEC64
 
