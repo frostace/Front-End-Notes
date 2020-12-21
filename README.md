@@ -18,6 +18,9 @@
 
 ## JavaScript
 
+-   [Number](./JavaScript/Number.md)
+-   [Null vs. Undefined](./JavaScript/Null%20vs.%20undefined.md)
+-   [Tail Recursion](./JavaScript/Tail%20Recursion.md)
 -   [Prototype Chain](./JavaScript/Prototype%20Chain.md)
 -   [JS Event](./JavaScript/JavaScript%20Event.md)
 -   [Event Loop](./JavaScript/EventLoop.md)

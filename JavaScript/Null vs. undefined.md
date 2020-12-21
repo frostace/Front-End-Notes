@@ -1,90 +1,90 @@
 # Null vs. Undefined
 
-- null == undefined
+-   null == undefined
 
-  ```JavaScript
-  console.log(null == null); 						// true (of course)
-  console.log(undefined == undefined); 	// true (of course)
-  console.log(null == undefined); 			// true
-  ```
+    ```JavaScript
+    console.log(null == null); 			    // true (of course)
+    console.log(undefined == undefined); 	// true (of course)
+    console.log(null == undefined); 		// true
+    ```
 
-- Root level undefined
+-   Root level undefined
 
-  ```JavaScript
-  if (typeof someglobal !== 'undefined') {
-      // someglobal is now safe to use
-      console.log(someglobal);
-  }
-  ```
+    ```JavaScript
+    if (typeof someglobal !== 'undefined') {
+        // someglobal is now safe to use
+        console.log(someglobal);
+    }
+    ```
 
-  Note: I think this is for safety reason
+    Note: I think this is for safety reason
 
-- Limit Explicit use of `undefined`
+-   Limit Explicit use of `undefined`
 
-  Better change this:
+    Better change this:
 
-  ```JavaScript
-  function foo() {
-      // if Something
-      return {a: 1, b: 2};
-      // else
-      return {a: 1, b: undefined};
-  }
-  ```
-  to this:
+    ```JavaScript
+    function foo() {
+        // if Something
+        return {a: 1, b: 2};
+        // else
+        return {a: 1, b: undefined};
+    }
+    ```
 
-  ```TypeScript
-  function foo(): {a: number, b?: number} {
-      // if Something
-      return {a: 1, b: 2};
-      // else
-      return {a: 1};
-  }
-  ```
+    to this:
 
-  Note: Personally don't understand the down side of `undefined`
+    ```TypeScript
+    function foo(): {a: number, b?: number} {
+        // if Something
+        return {a: 1, b: 2};
+        // else
+        return {a: 1};
+    }
+    ```
 
-- Don't use `undefined` as a mean of denoting `validity`
+    Note: Personally don't understand the down side of `undefined`
 
-  Awful function:
+-   Don't use `undefined` as a mean of denoting `validity`
 
-  ```TypeScript
-  function toInt(str: string) {
-    	return str ? parseInt(str) : undefined;
-  }
-  ```
+    Awful function:
 
-  Better function:
+    ```TypeScript
+    function toInt(str: string) {
+      	return str ? parseInt(str) : undefined;
+    }
+    ```
 
-  ```TypeScript
-  function toInt(str: string): { valid: boolean, int?: number } {
-      const int = parseInt(str);
-      if (isNaN(int)) {
-        	return { valid: false };
-      }
-      else {
-        	return { valid: true, int };
-      }
-  }
-  ```
+    Better function:
 
-  Note: Using `undefined` as a means of `validity` would produce an intertwined type (here, STRING and UNDEFINED), which is ambiguous for type checking.
+    ```TypeScript
+    function toInt(str: string): { valid: boolean, int?: number } {
+        const int = parseInt(str);
+        if (isNaN(int)) {
+          	return { valid: false };
+        }
+        else {
+          	return { valid: true, int };
+        }
+    }
+    ```
 
-- JSON and Serialization
+    Note: Using `undefined` as a means of `validity` would produce an intertwined type (here, STRING and UNDEFINED), which is ambiguous for type checking.
 
-  JSON supports `null` but not `undefined`
+-   JSON and Serialization
 
-  `null` attributes are encoded
+    JSON supports `null` but not `undefined`
 
-  `undefined` attributes are excluded
+    `null` attributes are encoded
 
-  ```JavaScript
-  JSON.stringify({willStay: null, willBeGone: undefined}); // {"willStay": null}
-  ```
+    `undefined` attributes are excluded
+
+    ```JavaScript
+    JSON.stringify({willStay: null, willBeGone: undefined}); // {"willStay": null}
+    ```
 
 ## `null` is a bad idea by `Douglas Crockford`
 
-* [youtube video](https://www.youtube.com/watch?v=PSGEjv3Tqo0&feature=youtu.be&t=9m21s)
+-   [youtube video](https://www.youtube.com/watch?v=PSGEjv3Tqo0&feature=youtu.be&t=9m21s)
 
 Note: Because JavaScript itself uses `undefined` all the time, and it makes no sense to keep 2 values which denotes the same bottom value (empty), so Douglas decided to get rid of `null`.
-
