@@ -163,7 +163,7 @@ console.log(Number.isNaN(NaN)); // true
 
   ```JavaScript
   console.log(Number.MAX_VALUE + 10 ** 291);  // 1.7976931348623157e+308
-  console.log(Number.MAX_VALUE - 10 ** 292);  // Infinity
+  console.log(Number.MAX_VALUE + 10 ** 292);  // Infinity
   console.log(Number.MAX_VALUE + 10 ** 1000);  // Infinity
   console.log(-Number.MAX_VALUE - 10 ** 1000); // -Infinity
   ```
