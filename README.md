@@ -19,6 +19,7 @@
 ## JavaScript
 
 -   [Number](./JavaScript/Number.md)
+-   [Truthy](./JavaScript/Truthy.md)
 -   [Null vs. Undefined](./JavaScript/Null%20vs.%20undefined.md)
 -   [Tail Recursion](./JavaScript/Tail%20Recursion.md)
 -   [Prototype Chain](./JavaScript/Prototype%20Chain.md)
