@@ -22,6 +22,7 @@
 -   [Truthy](./JavaScript/Truthy.md)
 -   [Null vs. Undefined](./JavaScript/Null%20vs.%20undefined.md)
 -   [Tail Recursion](./JavaScript/Tail%20Recursion.md)
+-   [Classes](./JavaScript/Classes.md)
 -   [Prototype Chain](./JavaScript/Prototype%20Chain.md)
 -   [JS Event](./JavaScript/JavaScript%20Event.md)
 -   [Event Loop](./JavaScript/EventLoop.md)
@@ -37,7 +38,8 @@
 
 ## TypeScript
 
--   Unknown yet
+-   [Intro](./TypeScript/Intro.md)
+-   [Classes](./TypeScript/Classes.md)
 
 ## React
 
