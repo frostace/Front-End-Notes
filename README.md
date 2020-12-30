@@ -40,6 +40,7 @@
 
 -   [Intro](./TypeScript/Intro.md)
 -   [Classes](./TypeScript/Classes.md)
+-   [Class Emit](./TypeScript/ClassEmit.md)
 
 ## React
 
