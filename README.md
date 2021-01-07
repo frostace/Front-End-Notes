@@ -42,6 +42,7 @@
 -   [Classes](./TypeScript/Classes.md)
 -   [Class Emit](./TypeScript/ClassEmit.md)
 -   [Arrow Function](./TypeScript/ArrowFunctions.md)
+-   [Let Const Var](./TypeScript/Let_Const_Var.md)
 
 ## React
 
