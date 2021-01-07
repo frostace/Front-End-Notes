@@ -41,6 +41,7 @@
 -   [Intro](./TypeScript/Intro.md)
 -   [Classes](./TypeScript/Classes.md)
 -   [Class Emit](./TypeScript/ClassEmit.md)
+-   [Arrow Function](./TypeScript/ArrowFunctions.md)
 
 ## React
 
