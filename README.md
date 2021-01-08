@@ -43,6 +43,8 @@
 -   [Class Emit](./TypeScript/ClassEmit.md)
 -   [Arrow Function](./TypeScript/ArrowFunctions.md)
 -   [Let Const Var](./TypeScript/Let_Const_Var.md)
+-   [Spread Operator](./TypeScript/SpreadOperator.md) and [Destructuring](./TypeScript/Destructure.md)
+-   [Loop](./TypeScript/Loop.md) and [Iterator](./TypeScript/Iterator.md)
 
 ## React
 
