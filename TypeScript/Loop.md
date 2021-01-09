@@ -40,21 +40,95 @@ for (let char of hello) {
 }
 ```
 
-## Limitations
+## Limitations of `for ... of`
 
-only supported on `string` and `array`
-
-If you are not targeting ES6 or above, the generated code assumes the property `length` exists on the object and that the object can be indexed via numbers e.g. `obj[2]`. So it is only supported on `string` and `array` for these legacy JS engines.
+If you are not targeting ES6 or above, the generated code assumes the property `length` exists on the object and that the object can be indexed via numbers e.g. `obj[2]`. So it is only supported on `string` and `array` for these legacy DOM engines.
 
 **Q**: what does it mean by **if you are not targeting ES6 or above**
 
-**Q**: what is the diff. between `legacy JS` and `JS`
+**Q**: what is the diff. between `Legacy DOM` and `Modern DOM`
 
-|                           | Pros                                           | Cons                                                         |
-| ------------------------- | ---------------------------------------------- | ------------------------------------------------------------ |
-| `Array.prototype.forEach` | syntax is simpler than the naive for loop way  | cannot break out of an ongoing loop                          |
-| `for ... in`              | better syntax<br />can break out of the loop   | key is `string`<br />will iterate through manually added keys and keys on the prototype chain |
-| `for ... of`              | key is `number`<br />can break out of the loop | /                                                            |
+- `Legacy DOM`: (old / outdated DOM engine)
+
+  ```js
+  var table = document.getElementById("score");
+  var groups = table.tBodies;
+  var rows = null;
+  var cells = [];
+
+  for (var i = 0; i < groups.length; i++) {
+      rows = groups[i].rows;
+      for (var j = 0; j < rows.length; j++) {
+        	cells.push(rows[j].cells[1]);
+      }
+  }
+  ```
+
+- `Modern DOM`:
+
+  ```js
+var cells = document.querySelectorAll("#score>tbody>tr>td:nth-of-type(2)");
+  ```
+
+  ||Speed|
+  |---|---|
+  |`getElementById`|0.00095s / query|
+  |`querySelector`|0.00275 s / query|
+  |`jQuery`|0.00340 s / query|
+  
+  Experiment
+  
+  ```html
+  <div id="score">test</div>
+  <div id="score1">test</div>
+  <!-- ... -->
+  ```
+  
+  ```js
+  let totalTime = 0;
+  for (let i = 0; i < 100; i++) {
+  	let startTime = performance.now();
+  	document.getElementById("score");
+  	let endTime = performance.now();
+  	totalTime += endTime - startTime;
+  }
+  console.log(totalTime / 100);
+  // 0.0009499999941908754
+  ```
+  
+  ```js
+  let totalTime = 0;
+  for (let i = 0; i < 100; i++) {
+  	let startTime = performance.now();
+  	document.querySelector("#score");
+  	let endTime = performance.now();
+  	totalTime += endTime - startTime;
+  }
+  console.log(totalTime / 100);
+  // 0.002749999985098839
+  ```
+  
+  ```js
+  let totalTime = 0;
+  for (let i = 0; i < 100; i++) {
+  	let startTime = performance.now();
+  	$("#score");
+  	let endTime = performance.now();
+  	totalTime += endTime - startTime;
+  }
+  console.log(totalTime / 100);
+  // 0.0033999999868683517
+  ```
+  
+  
+
+## Conclusion
+
+|                                                              | Pros                                           | Cons                                                         |
+| ------------------------------------------------------------ | ---------------------------------------------- | ------------------------------------------------------------ |
+| `Array.prototype.forEach`                                    | syntax is simpler than the naive for loop way  | cannot break out of an ongoing loop                          |
+| `for ... in`<br />Iterate over `enumerable properties`       | better syntax<br />can break out of the loop   | key is `string`<br />will iterate through manually added keys and keys on the prototype chain |
+| `for ... of`<br />Iterate over `values` that the `iterable object` defines to be iterated over | key is `number`<br />can break out of the loop | /                                                            |
 1. Naive for loop
   
     ```JavaScript
@@ -94,3 +168,37 @@ If you are not targeting ES6 or above, the generated code assumes the property `
         console.log(myArray[idx]);
     }
     ```
+
+5. show difference
+
+   ```js
+   Object.prototype.objCustom = function() {};
+   Array.prototype.arrCustom = function() {};
+   
+   const iterable = [3, 5, 7];
+   iterable.foo = 'hello';
+   
+   for (const i in iterable) {
+     	console.log(i); // logs 0, 1, 2, "foo", "arrCustom", "objCustom"
+   }
+   
+   for (const i in iterable) {
+       if (iterable.hasOwnProperty(i)) {
+         	console.log(i); // logs 0, 1, 2, "foo"
+       }
+   }
+   
+   for (const i of iterable) {
+     	console.log(i); // logs 3, 5, 7
+   }
+   ```
+
+   
+
+## Reference
+
+https://stackoverflow.com/questions/15338228/what-is-and-what-is-the-biggest-difference-between-legacy-javascript-and-javascr
+
+https://stackoverflow.com/questions/21694002/legacy-javascript-dom-vs-modern-javascript-dom-vs-jquery-dom
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
