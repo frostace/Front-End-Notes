@@ -45,6 +45,8 @@
 -   [Let Const Var](./TypeScript/Let_Const_Var.md)
 -   [Spread Operator](./TypeScript/SpreadOperator.md) and [Destructuring](./TypeScript/Destructure.md)
 -   [Loop](./TypeScript/Loop.md) and [Iterator](./TypeScript/Iterator.md)
+-   [Template Strings](./TypeScript/TemplateStrings.md)
+-   [Promise](./TypeScript/Promise.md)
 
 ## React
 
