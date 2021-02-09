@@ -104,7 +104,13 @@ Or we can use "track by $index" to re-use in place (re-use instances manually ac
 
 
 
+## Preact Virtual Nodes
 
+See:
+
+- [The Easy Parts](https://medium.com/@asolove/preact-internals-1-the-easy-parts-3a081fa36205)
+- [The Component Model](https://medium.com/@asolove/preact-internals-2-the-component-model-36a05e32957b)
+- [Some Fiddly Little Bits](https://medium.com/@asolove/preact-internals-3-some-fiddly-little-bits-f353b1ad7abc)
 
 ### Reference
 
