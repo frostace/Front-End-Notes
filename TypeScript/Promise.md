@@ -210,6 +210,8 @@ Note that these relations are recursive, e.g. a promise that has been resolved t
 
 **Q**: what does it mean by `it has been resolved to a thenable which will call neither handler back as soon as possible`
 
+It means that this Promise has been resolved to a thenable object whose state is uncertain at the moment.
+
 ### Promise Constructor
 
 ```js
