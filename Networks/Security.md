@@ -106,6 +106,10 @@
 
 * SQL Injection
 
+
+
+* RFD
+
 ### Reference
 
 XSS:
@@ -121,3 +125,7 @@ SSRF:
 https://juejin.im/post/5b95ce0df265da0acb13752c
 
 https://juejin.im/post/5c466988f265da615f778eda
+
+RFD:
+
+https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/reflected-file-download-a-new-web-attack-vector/
