@@ -4,6 +4,9 @@ bookmark: https://doc.rust-lang.org/book/ch03-00-common-programming-concepts.htm
 
 ## WHY RUST
 
+> Rust is the future of JavaScript Infrastructure
+> https://leerob.io/blog/rust
+
 1. safe and easy to use references
 2. strong, static type system + type inference
 
