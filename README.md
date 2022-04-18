@@ -99,7 +99,7 @@
 
 ## Standard & Library
 
--   CommonJS vs ES6
+-   [CommonJS vs ES Module](./Language/JavaScript/module.md)
 
 ## Projects
 
