@@ -64,6 +64,17 @@ cargo run --bin hello
 2. `trait`: A trait tells the Rust compiler about functionality a particular type has and can share with other types. Sounds like a subset of a crate, or let's say, a collections of methods implemented in a crate.
 3. `shadowing`: Shadowing lets us reuse the `guess` variable name rather than forcing us to create two unique variables, such as `guess_str` and `guess` for example.
 
+### Common Programming Concepts
+
+1. `when to use shadowing`:
+
+    1. when you want to perform a few transformations on a value but have the variable be immutable after those transformations have been completed.
+    2. when you want to change the type of the value but reuse the same name.
+
+2. `array vs vector`: `array` is of fixed size while `vector` can shrink/grow in size.
+3. `unit`: empty data type.
+4. `statement vs expression`: a statement doesn't return a value while an expression alway returns a value. when you add a semicolon to an expression within a new scope block, it's turned from an expression to a statement.
+
 ## ACCESSORY
 
 1. rustup: An installer for the systems programming language Rust
