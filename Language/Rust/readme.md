@@ -31,6 +31,9 @@ rustc main.rs
 ### Cargo
 
 ```bash
+# create a project
+cargo new hello_world
+
 # build
 cargo build
 
@@ -40,14 +43,17 @@ cargo build --release
 # build + run
 cargo run
 
-# build without producing a binary and check for errors
+# build without producing a binary and check for errors in its compilation
 cargo check
 
-# update crates to the latest versions that fit cargo.toml
+# update crates to the latest versions that fit cargo.toml, which will ignore the Cargo.lock file
 cargo update
 
 # build documentation provided by all deps
 cargo doc --open
+
+# If we have multiple binary files out there, we can specify which file to run with
+cargo run --bin hello
 ```
 
 1. How does Rust figure out that the src files hadn't changed in `cargo build` / `cargo run`?
@@ -55,7 +61,7 @@ cargo doc --open
 ### Guessing Game
 
 1. `prelude`: the list of things that Rust automatically imports into every Rust program.
-2. `trait`: A trait tells the Rust compiler about functionality a particular type has and can share with other types.
+2. `trait`: A trait tells the Rust compiler about functionality a particular type has and can share with other types. Sounds like a subset of a crate, or let's say, a collections of methods implemented in a crate.
 3. `shadowing`: Shadowing lets us reuse the `guess` variable name rather than forcing us to create two unique variables, such as `guess_str` and `guess` for example.
 
 ## ACCESSORY
